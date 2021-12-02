@@ -9,6 +9,7 @@ let counter = 0;
 const addBook = (data) => {
   counter++;
   let html = '';
+  table.innerHTML= '';
   for(let row of data){
     html += `
       <tr class="carWrapper" id="${counter}">
