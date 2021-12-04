@@ -61,7 +61,7 @@ priority.addEventListener('change', function (event) {
 const addRow = (title,author,priority,category) => {
   let rows = get();
   rows.push([title,author,priority,category])
-  return save(rows)
+  save(rows)
 }
 
 // get localStorage data
@@ -76,7 +76,7 @@ const get = () => {
 // saving changes
 const save = data => {
   localStorage.setItem('table', JSON.stringify(data))
-  return addBook(data);
+  addBook(data);
 }
 
 const appInit = () => {
