@@ -22,11 +22,19 @@
 }
 
 #submit{
+  position:relative;
+  top: 0;
   border: none;
   background: linear-gradient(to right, #828fd3 0%, #5e6dbe 50%, #5461aa 100%);
   color: white;
   border-radius: 27px;
   padding: 8px 32px;
+}
+
+#submit:hover{
+  top: -2px;
+  transition: 200ms;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 .table{
