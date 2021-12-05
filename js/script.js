@@ -14,7 +14,7 @@ const addBook = (data) => {
         <td valign="center" class="table-element col-3 col-sm-3" id="title"><div class="table-cell">${row[1]}</div></td>
         <td valign="center" class="table-element col-3 col-sm-3" id="author"><div class="table-cell">${row[2]}</div></td>
         <td valign="center" class="table-element col-3 col-sm-3" id="priority"><div class="table-cell">${row[3]}</div></td>
-        <td valign="center" class="table-element col-3 col-sm-3" id="genres"><div class="last-table-cell">${row[4]}<img class="deleteButton" src="/images/delete.png"/></div></td>
+        <td valign="center" class="table-element col-3 col-sm-3" id="genres"><div class="last-table-cell">${row[4]}<img class="deleteButton" src="./images/delete.png"/></div></td>
       </tr> 
     `
     table.insertAdjacentHTML('beforeend', html);
