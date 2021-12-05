@@ -9,39 +9,46 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form id="bookForm">
-    <div class="form-row">
-      <label>Title</label>
-      <input id="title" name="title" type="text"/>
-    </div>
-    <div class="form-row">
-      <label>Author</label>
-      <input id="author" name="author" type="text"/>
-    </div>
-    <div class="form-row">
-      <label>Priority</label>
-      <input id="priority" name="priority" type="number" value="1"/>
-    </div>
-    <div class="form-row">
-      <label>Category</label>
-      <select name="category" id="category">
-        <option value="Drama">Drama</option>
-        <option value="xtraDrama">xtraDrama</option>
-        <option value="homongousDrama">homongousDrama</option>
-      </select>
-    </div>
-    <div class="form-button">
-      <button id="submit" type="submit">Submit</button>
-    </div>
-  </form>
-  <div>
+  <div class="formWrapper">
+    <form id="bookForm" class="bookForm">
+      <div class="form-row rows">
+        <div class="form-row">
+          <label>Title</label>
+          <input id="title" name="title" type="text"/>
+        </div>
+        <div class="form-row">
+          <label>Author</label>
+          <input id="author" name="author" type="text"/>
+        </div>
+      </div>
+      <div class="form-row rows">
+        <div class="form-row">
+          <label>Priority</label>
+          <input id="priority" name="priority" type="number" value="1"/>
+        </div>
+        <div class="form-row">
+          <label>genres</label>
+          <select name="category" id="genres">
+            <option value="Action">Action</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Drama">Drama</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row form-button rows">
+        <button id="submit" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="table-wrapper">
+    <button class="button" id="sortDefault">domyślne sortowanie</button>
     <table class="table">
       <thead>
         <tr class="table-headers">
-          <th class="col-3" scope="col">Tytuł</th>
-          <th class="col-3" scope="col">autor</th>
-          <th class="col-3" scope="col">Priorytet</th>
-          <th class="col-3" scope="col">Kategoria</th>
+          <th class="col-3" scope="col" id="header-title"><div class="headers">tytuł<i class="fas fa-arrow-down"></i></div></th>
+          <th class="col-3" scope="col" id="header-author"><div class="headers">autor<i class="fas fa-arrow-down"></i></div></th>
+          <th class="col-3" scope="col" id="header-priority"><div class="headers">priorytet<i class="fas fa-arrow-down"></i></div></th>
+          <th class="col-3" scope="col" id="header-genres"><div class="headers">kategoria<i class="fas fa-arrow-down"></i></div></th>
         </tr>
       </thead>
       <tbody id="tableBody">
@@ -49,7 +56,8 @@
       </tbody>
     </table>
   </div>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="js/script.js" type="module"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://kit.fontawesome.com/e296f21cf9.js" crossorigin="anonymous"></script>
 </body>
 </html>
