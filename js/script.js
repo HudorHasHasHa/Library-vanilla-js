@@ -110,7 +110,7 @@ const switchIcon = (item, counter, allItems) => {
     allItems[i].children[0].children[0].classList.remove("fa-arrow-up");
   }
   if(item.id !== "sortDefault"){
-    if(counter%2!=0){
+    if(counter%2==0){
       item.children[0].children[0].classList.add("fa-arrow-up");
     }else{
       item.children[0].children[0].classList.remove("fa-arrow-up");
