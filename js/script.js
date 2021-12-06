@@ -102,6 +102,7 @@ const deleteElements = () => {
       // console.log(storageData)
       save(storageData);
       this.parentNode.parentNode.parentNode.remove()
+      sorting();
     });
   }
 }
