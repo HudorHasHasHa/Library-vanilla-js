@@ -190,6 +190,7 @@ const sorting = () => {
   });
   sortDefault.addEventListener('click', function(event){
     event.preventDefault();
+    console.log(defaultTable);
     save(defaultTable);
     switchIcon(this, priorityCount, allItems);
   });
