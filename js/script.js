@@ -56,7 +56,7 @@ priority.addEventListener('change', function (event) {
   }
 });
 
-// add row into the table in localStorage
+// add row into the table in sessionStorage
 const addRow = (title, author, priority, genres) => {
   let rows = get();
   let id = table.children.length;
@@ -65,9 +65,9 @@ const addRow = (title, author, priority, genres) => {
   save(rows)
 }
 
-// get localStorage data
+// get sessionStorage data
 const get = () => {
-  let rows = localStorage.getItem('table')
+  let rows = sessionStorage.getItem('table')
   if (!rows) {
     return []
   } else {
@@ -77,18 +77,18 @@ const get = () => {
 
 // saving changes
 const save = data => {
-  localStorage.setItem('table', JSON.stringify(data))
+  sessionStorage.setItem('table', JSON.stringify(data))
   addBook(data);
 }
 
-// deleting items from table&localStorage
+// deleting items from table&sessionStorage
 const deleteElements = () => {
   for (let i = 0; i < deleteButtons.length; i++) {
     deleteButtons[i].addEventListener('click', function () {
       // console.log(this.parentNode.parentNode.parentNode.id);
       // thisArray.push(this.parentNode.parentNode.parentNode.children[0].children[0].innerHTML);
-      let storageData = JSON.parse(localStorage.getItem('table'));
-      // deleting table item and item from localstorage by matching
+      let storageData = JSON.parse(sessionStorage.getItem('table'));
+      // deleting table item and item from sessionStorage by matching
       for (let i = 0; i < storageData.length; i++) {
         // console.log(this.parentNode.parentNode.parentNode.id, storageData[i][0]);
         if (+this.parentNode.parentNode.parentNode.id === +storageData[i][0]) {
