@@ -110,7 +110,8 @@ const switchIcon = (item, counter, allItems) => {
   for(let i = 0; i<allItems.length; i++){
     allItems[i].children[0].children[0].classList.remove("fa-arrow-up");
   }
-  if(item.id !== "sortDefault"){
+  console.log(item.id);
+  if(item.id != "sortDefault"){
     if(counter%2==0){
       item.children[0].children[0].classList.add("fa-arrow-up");
     }else{
@@ -132,9 +133,9 @@ const sorting = () => {
   let countersArr = [];
   // variable for switchicon reseting the icons
   let allItems = [];
-  allItems.push(title,author,priority);
+  allItems.push(title,author,priority,genres);
   countersArr.push(titleCount,authorCount);
-  arr.push(title,author,genres);
+  arr.push(title,author);
   let defaultTable = get();
   // console.log(arr)
   for(let i = 0; i<arr.length; i++){
@@ -211,9 +212,6 @@ const sorting = () => {
     switchIcon(this, priorityCount, allItems);
   });
   sortDefault.addEventListener('click', function(event){
-    if(defaultTable.length >= 0){
-      
-    }
     event.preventDefault();
     save(defaultTable);
     switchIcon(this, priorityCount, allItems);
