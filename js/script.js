@@ -1,6 +1,6 @@
 // Selectors
 const submitButton = document.getElementById("submit");
-const priority = document.getElementById("priority");
+const priority = document.getElementById("priorityOpt");
 const table = document.getElementById("tableBody");
 const deleteButtons = document.getElementsByClassName("deleteButton");
 
@@ -56,18 +56,19 @@ priority.addEventListener('change', function (event) {
   }
 });
 
-// add row into the table in sessionStorage
+// add row into the table in localStorage
 const addRow = (title, author, priority, genres) => {
   let rows = get();
   let id = table.children.length;
   // console.log(typeof rows);
   rows.push([id, title, author, priority, genres]);
   save(rows)
+  sorting();
 }
 
-// get sessionStorage data
+// get localStorage data
 const get = () => {
-  let rows = sessionStorage.getItem('table')
+  let rows = localStorage.getItem('table')
   if (!rows) {
     return []
   } else {
@@ -77,18 +78,18 @@ const get = () => {
 
 // saving changes
 const save = data => {
-  sessionStorage.setItem('table', JSON.stringify(data))
+  localStorage.setItem('table', JSON.stringify(data))
   addBook(data);
 }
 
-// deleting items from table&sessionStorage
+// deleting items from table&localStorage
 const deleteElements = () => {
   for (let i = 0; i < deleteButtons.length; i++) {
     deleteButtons[i].addEventListener('click', function () {
       // console.log(this.parentNode.parentNode.parentNode.id);
       // thisArray.push(this.parentNode.parentNode.parentNode.children[0].children[0].innerHTML);
-      let storageData = JSON.parse(sessionStorage.getItem('table'));
-      // deleting table item and item from sessionStorage by matching
+      let storageData = JSON.parse(localStorage.getItem('table'));
+      // deleting table item and item from localstorage by matching
       for (let i = 0; i < storageData.length; i++) {
         // console.log(this.parentNode.parentNode.parentNode.id, storageData[i][0]);
         if (+this.parentNode.parentNode.parentNode.id === +storageData[i][0]) {
@@ -131,11 +132,10 @@ const sorting = () => {
   let countersArr = [];
   // variable for switchicon reseting the icons
   let allItems = [];
-  allItems.push(title,author,priority,genres);
-  countersArr.push(titleCount,authorCount,genresCount);
+  allItems.push(title,author,priority);
+  countersArr.push(titleCount,authorCount);
   arr.push(title,author,genres);
   let defaultTable = get();
-  console.log(defaultTable);
   // console.log(arr)
   for(let i = 0; i<arr.length; i++){
     // console.log(arr);
@@ -159,11 +159,33 @@ const sorting = () => {
         });
         ++countersArr[i];
       }
-      console.log(data);
       save(data)
       switchIcon(this, countersArr[i], allItems);
     });
   }
+  genres.addEventListener('click', function(){
+    const data = get();
+    if(genresCount%2==0){
+      data.sort((a,b) => {
+        if (a[4] === b[4]){
+          return 0;
+        }
+        return (a[4] < b[4]) ? -1 : 1;
+      });
+      ++genresCount;
+    }
+    else{
+      data.sort((a,b) => {
+        if (b[4] === a[4]){
+          return 0;
+        }
+        return (b[4] < a[4]) ? -1 : 1;
+      });
+      ++genresCount;
+    }
+    save(data)
+    switchIcon(this, genresCount, allItems);
+  })
   priority.addEventListener('click', function(){
     const data = get();
     if(priorityCount%2==0){
@@ -189,12 +211,14 @@ const sorting = () => {
     switchIcon(this, priorityCount, allItems);
   });
   sortDefault.addEventListener('click', function(event){
+    if(defaultTable.length >= 0){
+      
+    }
     event.preventDefault();
-    console.log(defaultTable);
     save(defaultTable);
     switchIcon(this, priorityCount, allItems);
   });
-};
+}
 
 //init
 const appInit = () => {
