@@ -158,7 +158,7 @@ const sorting = () => {
         });
         ++countersArr[i];
       }
-      // console.log(data);
+      console.log(data);
       save(data)
       switchIcon(this, countersArr[i], allItems);
     });
