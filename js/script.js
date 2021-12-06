@@ -119,7 +119,9 @@ const switchIcon = (item, counter, allItems) => {
 }
 
 // sorting by every header of the table with vanilajs
-const sorting = () => {
+// const sorting = () => {
+// it didnt work in above way on githubPages
+(function() {
   const title = document.getElementById("header-title");
   const author = document.getElementById("header-author");
   const priority = document.getElementById("header-priority");
@@ -135,6 +137,7 @@ const sorting = () => {
   countersArr.push(titleCount,authorCount,genresCount);
   arr.push(title,author,genres);
   const defaultTable = get();
+  console.log(defaultTable)
   // console.log(arr)
   for(let i = 0; i<arr.length; i++){
     // console.log(arr);
@@ -192,13 +195,13 @@ const sorting = () => {
     save(defaultTable);
     switchIcon(this, priorityCount, allItems);
   });
-}
+})();
 
 //init
 const appInit = () => {
   addBook(get());
   deleteElements();
-  sorting();
+  // sorting();
 }
 
 appInit();
