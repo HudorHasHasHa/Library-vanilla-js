@@ -119,9 +119,7 @@ const switchIcon = (item, counter, allItems) => {
 }
 
 // sorting by every header of the table with vanilajs
-// const sorting = () => {
-// it didnt work in above way on githubPages
-(function() {
+const sorting = () => {
   const title = document.getElementById("header-title");
   const author = document.getElementById("header-author");
   const priority = document.getElementById("header-priority");
@@ -195,13 +193,13 @@ const switchIcon = (item, counter, allItems) => {
     save(defaultTable);
     switchIcon(this, priorityCount, allItems);
   });
-})();
+};
 
 //init
 const appInit = () => {
   addBook(get());
   deleteElements();
-  // sorting();
+  sorting();
 }
 
 appInit();
