@@ -134,8 +134,8 @@ const sorting = () => {
   allItems.push(title,author,priority,genres);
   countersArr.push(titleCount,authorCount,genresCount);
   arr.push(title,author,genres);
-  const defaultTable = get();
-  console.log(defaultTable)
+  let defaultTable = get();
+  console.log(defaultTable);
   // console.log(arr)
   for(let i = 0; i<arr.length; i++){
     // console.log(arr);
