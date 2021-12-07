@@ -1,3 +1,13 @@
+body{
+  background: rgb(218, 255, 249);
+}
+
+.form-section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .formWrapper{
   text-align: center;
   padding: 10px 0 0 0;
@@ -23,7 +33,7 @@
   left: 0;
 } */
 
-.form-row{
+/* .form-row{
   position: relative;
   display: flex;
   justify-content: left;
@@ -31,20 +41,19 @@
   height: 100%;
 }
 
-@media(max-width: 768px){
-  .form-row{
-    display: block;
-    padding: 0;
-    padding: 10px 0 10px 10px;
-  }
+.rows{
+  padding-bottom: 20px;
+} */
 
-  .rows{
-    padding-bottom: 0!important;
-  }
+
+.form-row{
+  display: block;
+  padding: 0;
+  padding: 10px 0 10px 10px;
 }
 
 .rows{
-  padding-bottom: 20px;
+  padding-bottom: 0!important;
 }
 
 .form-row label{
@@ -92,20 +101,27 @@
 }
 
 /* Table section */
-/* .table-wrapper{
-  margin-top: 30px;
-  height: 100%;
-  position: relative;
+
+.table-section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.table{
-  position: absolute;
-  top: 100%;
-} */
+
+.table-section .table-wrapper{
+  width: 65%;
+}
+
+table{
+  table-layout: fixed;
+}
 
 .table{
   margin: 10px 0 0 0;
   overflow: hidden;
+  border-radius: 22px;
 }
+
 .table>:not(:last-child)>:last-child>*{
   border-bottom: none;
 }
@@ -140,15 +156,18 @@
 }
 
 td{
+  display: inline-block;
   overflow: hidden;
   overflow-x: auto;
-  min-width: 26%;
-  max-width: 26%;
+  /*
+  min-width: 24.5%;
+  max-width: 24.5%; */
 }
 
 #tableBody{
   background: linear-gradient(to bottom, #d0cfd3 0%, #f8f4ff 50%, #8b8b8d 100%);
   display: block;
+  height: 300px;
   max-height: 300px;
   overflow-y: auto;
   border-bottom: 2px solid #FFF;
@@ -161,6 +180,7 @@ tr{
 
 .table-cell{
   padding-left: 8px;
+  /* max-width: 50%; */
 }
 
 .last-table-cell{
@@ -169,6 +189,31 @@ tr{
   justify-content: space-between;
 }
 
+.deleteButton{
+  height: 24px;
+}
+
 .deleteButton:hover{
   box-shadow: 0 6px 20px 0 rgba(141, 38, 38, 0.3);
+}
+
+
+@media(max-width: 768px){
+  .table-section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .table-section .table-wrapper{
+    width: 85%;
+  }
+  .form-row{
+    display: block;
+    padding: 0;
+    padding: 10px 0 10px 10px;
+  }
+
+  .rows{
+    padding-bottom: 0!important;
+  }
 }
